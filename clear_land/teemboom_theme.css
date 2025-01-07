@@ -1,0 +1,469 @@
+.teemboom_root{
+	background: transparent;
+	color: var(--teemboom-text);
+	font-family: var(--teemboom-font_family);
+	font-size: var(--teemboom-font_size);
+}
+.teemboom_root *{
+	padding: 0;
+	margin: 0;
+}
+.teemboom_root img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.teemboom_root input, textarea{
+	border: none;
+	outline: none;
+}
+.teemboom_root button{
+	color: var(--teemboom-text);
+	cursor: pointer;
+}
+#teemboom_comments{
+	width: 96%;
+	padding: 10px 2%;
+	border-radius: 1px;
+}
+#teemboom_comments *{
+	padding: 0;
+	margin: 0;
+}
+
+#teemboom_comments_popup{
+	width: 50%;
+	min-width: 400px;
+	height: 85vh;
+	position: fixed;
+	right: 0%;
+	top: 5vh;
+	z-index: 10000000;
+	display: none;
+	overflow-y: auto;
+}
+@media (max-width: 550px){
+	#teemboom_comments_popup{
+		width: 100%;
+		min-width: 0px;
+		height: 100%;
+		top: 0vh;
+	}
+}
+#teemboom_comments_popup #teemboom_send_box{
+	top: 40px;
+}
+
+#teemboom_popup_close{
+	padding-right: 20px;
+	padding-top: 10px;
+	font-size: 15px;
+	font-weight: 600;
+	position: sticky;
+	top: 0px;
+	height: 30px;
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	background: var(--teemboom-main) !important;
+}
+#teemboom_popup_close p{
+	height: 90%;
+	padding: 0 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	color: var(--teemboom-text) !important;
+}
+
+
+#teemboom_comments .teemboom_popup{
+	position: fixed;
+	width: 400px;
+	padding: 40px 10px;
+	max-width: 80vw;
+	min-height: 200px;
+	height: fit-content;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: var(--teemboom-main);
+	box-shadow: 0px 3px 6px 6px var(--teemboom-outline);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	z-index: 100000;
+}
+#teemboom_comments .teemboom_popup_close{
+	position: absolute;
+	right: 0%;
+	top: 0%;
+	width: 40px;
+	height: 30px;
+	font-size: 18px;
+	font-weight: 600;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: var(--teemboom-main);
+	color: var(--teemboom-text);
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+}
+#teemboom_comments .teemboom_popup_partition{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 99999;
+	background-color: var(--teemboom-main);
+	opacity: 0.4;
+} 
+#teemboom_comments .teemboom_popup header{
+	font-size: 2.5em;
+	text-align: center;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+#teemboom_comments .teemboom_popup h6{
+	font-size: 2.2em;
+	text-align: center;
+	font-weight: 600;
+	padding: 10px 0;
+}
+#teemboom_comments .teemboom_popup label{
+	font-size: 2.5em;
+	margin-bottom: 5px;
+}
+#teemboom_comments .teemboom_popup input{
+	background: var(--teemboom-main);
+	color: var(--teemboom-text);
+	border: 1px var(--teemboom-outline) solid;
+	height: 30px;
+	width: 96%;
+	padding: 0 2%;
+	border-radius: 2px;
+	margin-bottom: 15px;
+	font-size: 2.8em !important;
+}
+
+#teemboom_comments .teemboom_popup textarea{
+	background: var(--teemboom-main);
+	color: var(--teemboom-text);
+	border: 1px var(--teemboom-outline) solid;
+	height: 80px;
+	border-radius: 2px;
+	margin-bottom: 10px;
+	font-size: 2.8em !important;
+}
+#teemboom_comments .teemboom_popup button{
+	background: var(--teemboom-main);
+	/* color: var(--teemboom-main); */
+	border: 1px var(--teemboom-text) solid;
+	height: 30px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	font-size: 2.6em;
+}
+
+#teemboom_comments .teemboom_popup_social{
+	width: 100%;
+	height: 40px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	padding: 6px 0;
+	border-radius: 5px;
+	border: none !important;
+}
+#teemboom_comments .teemboom_popup_social img{
+	width: auto;
+	height: 100%;
+	margin-right: 10px;
+}
+#teemboom_comments .teemboom_popup_social svg{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+#teemboom_comments .teemboom_popup_social p{
+	font-size: 1em;
+}
+
+#teemboom_profile_popup_pfp{
+	width: 60px;
+	height: 56px;
+	padding-top: 4px;
+	margin: 2px auto;
+	border-radius: 50%;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+#teemboom_comments .teemboom_profile_pic{
+	border-radius: 50% !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+#teemboom_comments .teemboom_profile_pic img{
+	object-fit: cover;
+}
+
+
+
+
+/* For app */
+#teemboomWriteComment{
+	position: relative;
+	width: 96%;
+	padding: 10px 2%;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	background: var(--teemboom-send_comment_background);
+	color: var(--teemboom-send_comment_text);
+}
+#teemboomMainProfilePic{
+	width: 30px;
+	height: 30px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 20px 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 13px;
+	cursor: pointer;
+}
+#teemboomCommentInput{
+	height: 30px;
+	width: 100%;
+	padding-top: 15px;
+	background: var(--teemboom-send_comment_background);
+	color: var(--teemboom-send_comment_text);
+	outline: none;
+    border: none;
+    flex-grow: 0;
+	font-size: 2.6em;
+}
+#teemboomWriteComment button{
+	padding: 7px;
+	border-radius: 50%;
+	border: none;
+	margin-top: auto;
+}
+#teemboomWriteComment button svg{
+	width: 20px;
+	height: 20px;
+}
+
+#teemboomCommentsBox{
+	width: 100%;
+	background: transparent;
+}
+
+#teemboom_comments .teemboomComment{
+	width: 90%;
+	padding: 20px 5%;
+	margin-top: 25px;
+	border-radius: 7px;
+	background: var(--teemboom-comments);
+}
+#teemboom_comments .teemboomCommentMeta{
+	width: 100%;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+}
+#teemboom_comments .teemboomcommentProfilePic{
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 12px 0 -5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	cursor: pointer;
+	background-color: black;
+	flex-shrink: 0;
+}
+#teemboom_comments .teemboomCommentTitle{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#teemboom_comments .teemboomCommentTitle p{
+	font-size: 3em;
+	font-weight: 600;
+	margin-bottom: 2px;
+}
+#teemboom_comments .teemboomCommentTitle span{
+	font-size: 2em;
+	opacity: 0.8;
+}
+
+#teemboom_comments .teemboomCommentLike{
+	display: flex;
+	align-items: center;
+	padding: 8px 13px;
+	border-radius: 18px;
+	border: 1px var(--teemboom-like-reply) solid;
+	color: var(--teemboom-like-reply);
+	cursor: pointer;
+}
+#teemboom_comments .teemboomCommentLike svg{
+	width: 17px;
+	height: 17px;
+	fill: var(--teemboom-like-reply);
+}
+#teemboom_comments .teemboomCommentLike svg path{
+
+	fill: var(--teemboom-like-reply);
+}
+#teemboom_comments .teemboomCommentLike p{
+	font-size: 15px;
+	margin-left: 8px;
+	transform: translateY(2px);
+}
+
+
+
+#teemboom_comments .teemboomcommentText{
+	width: 100%;
+	line-height: 160%;
+	font-size: 2.7em;
+	color: var(--teemboom-text);
+	word-break: break-all;
+}
+
+#teemboom_comments .teemboomCommentEngage{
+	width: 100%;
+	margin-top: 13px;
+}
+#teemboom_comments .teemboomReplyButton{
+	width: fit-content;
+	padding: 5px 13px;
+	border-radius: 18px;
+	border: 1px var(--teemboom-like-reply) solid;
+	color: var(--teemboom-like-reply);
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+#teemboom_comments .teemboomReplyButton p{
+	font-size: 2em;
+	font-weight: 600;
+	margin-right: 5px;
+}
+#teemboom_comments .teemboomReplyButton svg{
+	width: 13px;
+	height: 13px;
+	fill: var(--teemboom-like-reply);
+}
+#teemboom_comments .teemboomReplyButton svg path{
+	stroke: var(--teemboom-like-reply);
+}
+#teemboom_comments .teemboomReplyButton span{
+	margin-left: 2px;
+	font-size: 2em;
+}
+
+#teemboom_comments .teemboomReplies{
+	width: 100%;
+	display: none;
+}
+#teemboom_comments .teemboomReplies .teemboomRepliesInput{
+	display: flex;
+	align-items: center;
+}
+#teemboom_comments .teemboomReplies textarea{
+	height: 20px;
+	width: 100%;
+	padding-top: 15px;
+	background: var(--teemboom-send_reply_background);
+	color: var(--teemboom-send_reply_text);
+	outline: none;
+    border: none;
+	border-bottom: 1px var(--teemboom-outline) solid;
+    flex-grow: 0;
+	font-size: 2.6em;
+}
+
+#teemboom_comments .teemboomReplies button{
+	padding: 7px;
+	border-radius: 50%;
+	border: none;
+	margin-top: auto;
+}
+#teemboom_comments .teemboomReplies button svg{
+	width: 20px;
+	height: 20px;
+}
+
+
+
+#teemboom_comments .teemboomReply{
+	width: 90%;
+	padding: 5px 5%;
+	margin-top: 15px;
+	border-radius: 7px;
+	background: var(--teemboom-comments);
+}
+#teemboom_comments .teemboomReplyMeta{
+	width: 100%;
+	padding-bottom: 10px;
+	display: flex;
+	align-items: center;
+}
+#teemboom_comments .teemboomReplyProfilePic{
+	width: 30px;
+	height: 30px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 12px 0 -5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	cursor: pointer;
+	background-color: black;
+	flex-shrink: 0;
+}
+#teemboom_comments .teemboomReplyTitle{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+#teemboom_comments .teemboomReplyTitle p{
+	font-size: 2.6em;
+	font-weight: 600;
+	margin-bottom: 4px;
+}
+#teemboom_comments .teemboomReplyTitle span{
+	font-size: 1.8em;
+	opacity: 0.8;
+}
+
+
+#teemboom_comments .teemboomReplyText{
+	width: 100%;
+	line-height: 150%;
+	font-size: 2.5em;
+	color: var(--teemboom-text);
+	word-break: break-all;
+}

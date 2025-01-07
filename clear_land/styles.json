@@ -1,0 +1,54 @@
+{
+    "main": {
+        "title": "Main Background",
+        "default": "#fefefe",
+        "general": true,
+        "children": [
+            "send_comment_background", "send_reply_background"
+        ]
+    },
+    "comments": {
+        "title": "Comments Background",
+        "default": "#fdfdfd",
+        "general": true,
+        "children": [
+            "send_reply_background"
+        ]
+    },
+    "outline": {
+        "title": "Outline Color",
+        "default": "#aaa",
+        "general": true,
+        "children": [
+            "like-reply"
+        ]
+    },
+    "text": {
+        "title": "General Text",
+        "default": "#333",
+        "general": true,
+        "children": [
+            "send_comment_text", "send_reply_text"
+        ]
+    },
+    "send_comment_background": {
+        "title": "Write Comment Background",
+        "default": "#fefefe"
+    },
+    "send_comment_text": {
+        "title": "Send Comment Text",
+        "default": "#333"
+    },
+    "like-reply": {
+        "title": "Like and Relpy Color",
+        "default": "#000"
+    },
+    "send_reply_text": {
+        "title": "Send Reply Text",
+        "default": "#333"
+    },
+    "send_reply_background": {
+        "title": "Send Reply Background",
+        "default": "#fefefe"
+    }
+}

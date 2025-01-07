@@ -1,0 +1,117 @@
+{
+    "main": {
+        "title": "Main Background",
+        "default": "#fefefe",
+        "general": true,
+        "children": [
+            "send_comment_background", "send_reply_background",
+            "metrics_background", "comments_background",
+            "replies_background", "comments", "comment_title"
+        ]
+    },
+    "comments": {
+        "title": "Comments Background",
+        "default": "#fdfdfd",
+        "general": true,
+        "children": [
+            "comment_title", "replies_background",
+            "send_reply_background", "reply"
+        ]
+    },
+    "outline": {
+        "title": "Outline Color",
+        "default": "#aaa",
+        "general": true,
+        "children": [
+            
+        ]
+    },
+    "text": {
+        "title": "General Text",
+        "default": "#333",
+        "general": true,
+        "children": [
+            "send_comment_text", "send_reply_text",
+            "comment_title_text", "reply_text", 
+            "metrics_text", "like_color", "dislike_color"
+        ]
+    },
+    "shadow": {
+        "title": "Shadow Color",
+        "default": "#eee",
+        "general": true,
+        "children": [
+            "send_comment_text", "send_reply_text",
+            "comment_title_text", "reply_text", 
+            "metrics_text", "like_color", "dislike_color"
+        ]
+    },
+    "send_comment_background": {
+        "title": "Send Comment Background",
+        "default": "#fefefe"
+    },
+    "send_comment_outline": {
+        "title": "Send Comment Outline",
+        "default": "#aaa"
+    },
+    "send_comment_shadow": {
+        "title": "Send Comment Shadow",
+        "default": "#eee"
+    },
+    "send_reply_background": {
+        "title": "Send Reply Background",
+        "default": "#fefefe"
+    },
+    "metrics_background": {
+        "title": "Metrics Background",
+        "default": "#fefefe"
+    },
+    "comments_background": {
+        "title": "Comments Background",
+        "default": "#fefefe"
+    },
+    "comment_title": {
+        "title": "Comment Title Background",
+        "default": "#fdfdfd"
+    },
+    "replies_background": {
+        "title": "Replies Background",
+        "default": "#fdfdfd"
+    },
+    "reply": {
+        "title": "Reply Background",
+        "default": "#fdfdfd"
+    },
+    "profile_outline": {
+        "title": "Profile Outline",
+        "default": "#aaa"
+    },
+    "send_comment_text": {
+        "title": "Send Comment Text",
+        "default": "#333"
+    },
+    "send_reply_text": {
+        "title": "Send Reply Text",
+        "default": "#333"
+    },
+    "comment_title_text": {
+        "title": "Comment Title Text",
+        "default": "#333"
+    },
+    "reply_text": {
+        "title": "Reply Text",
+        "default": "#333"
+    },
+    "metrics_text": {
+        "title": "Metrics Text",
+        "default": "#333"
+    },
+    "like_color": {
+        "title": "Like Color",
+        "default": "#333"
+    },
+    "dislike_color": {
+        "title": "Dislike Color",
+        "default": "#333"
+    }
+}
