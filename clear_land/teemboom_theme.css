@@ -38,12 +38,9 @@
 	position: fixed;
 	right: 0%;
 	top: 5vh;
-	z-index: 1000000;
+	z-index: 10000;
 	display: none;
 	overflow-y: auto;
-}
-#teemboom_comments iframe{
-	z-index: 1000001;
 }
 @media (max-width: 550px){
 	#teemboom_comments_popup{
