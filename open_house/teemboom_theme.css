@@ -1,5 +1,5 @@
 .teemboom_root{
-	background: var(--teemboom-main);
+	background: transparent;
 	color: var(--teemboom-text);
 	font-family: var(--teemboom-font_family);
 	font-size: var(--teemboom-font_size);
@@ -8,14 +8,32 @@
 	padding: 0;
 	margin: 0;
 }
+.teemboom_root img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.teemboom_root input, textarea{
+	border: none;
+	outline: none;
+}
 .teemboom_root button{
 	color: var(--teemboom-text);
 	cursor: pointer;
 }
 #teemboom_comments{
-	width: 100%;
-	padding: 10px 0%;
+	width: 96%;
+	padding: 10px 2%;
 	border-radius: 1px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+}
+#teemboom_comments *{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 #teemboom_comments_popup{
@@ -65,374 +83,31 @@
 }
 
 
-#teemboom_send_box{
-	position: relative;
-	width: 99%;
-	min-height: 45px;
-	display: flex;
-	align-items: center;
-	margin: 0 0 0 1px;
-	margin-bottom: 20px;
-	position: sticky;
-	/* border: 1px var(--teemboom-outline) solid; */
-	border-radius: 5px;
-	top: 0px;
-	/* overflow: hidden; */
-	background: var(--teemboom-main);
-	z-index: 5;
-}
-#teemboom_send_text{
-	width: 100%;
-	padding: 15px 50px 0px 10px;
-    height: auto;
-	background: var(--teemboom-main);
-	color: var(--teemboom-text);
-	outline: none;
-    border: none;
-    border-bottom: 1px var(--teemboom-outline) solid;
-    flex-grow: 0;
-}
-#teemboom_send_button{
-	position: absolute;
-	right: 0;
-	width: fit-content;
-	height: 100%;
-	margin: auto 0;
-	flex-shrink: 0;
-	border: none;
-	background: var(--teemboom-main);
-	color: inherit;
-	padding: 0 10px;
-	cursor: pointer;
-	font-weight: 900;
-}
-
-#teemboom_send_profile{
-	flex-shrink: 0;
-	height: 26px;
-	width: 30px;
-	padding-top: 4px;
-	border-radius: 50%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 13px;
-	opacity: 0.9;
-	margin-left: 3px;
-	cursor: pointer;
-	position: relative;
-	font-family: Arial, Helvetica, sans-serif;
-}
-#teemboom_profile_dropdown{
-	position: absolute;
-	width: calc(100% - 20px);
-	padding: 10px;
-	background: var(--teemboom-main);
-	border: 1px var(--teemboom-outline) solid;
-	z-index: 400;
-	top: 100%;
-}
-#teemboom_profile_dropdown p{
-	font-size: 2.3em;
-	font-weight: 600;
-	margin-bottom: 5px;
-}
-#teemboom_profile_dropdown button{
-	padding: 7px 14px;
-	font-size: 2.5em;
-	background: var(--teemboom-main);
-}
-
-
-
-
-#teemboom_comments_box{
-	width: 100%;
-	position: relative;
-}
-
-#teemboom_metrics_box{
-	width: 100%;
-	margin: 15px 0 10px 0;
-	padding-left: 5px;
-	font-size: 3em;
-}
-
-
-.teemboom_comment_main{
-	width: 100%;
-}
-.teemboom_comment{
-	width: calc(100% - 10px);
-	margin-bottom: 5px;
-	padding: 5px 5px;
-	background: var(--teemboom-comments);
-	display: flex;
-	position: relative;
-}
-.teemboom_comment:hover .teemboom_comment_menu{
-	display: block;
-}
-.teemboom_comment_pfp{
-	width: 30px;
-	height: 26px;
-	padding-top: 4px;
-	border-radius: 50%;
-	margin-right: 5px;
-	flex-shrink: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 13px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-.teemboom_comment_title{
-	width: fit-content;
-	padding: 5px 0 3px 0;
-	font-size: 2.2em;
-	font-weight: 600;
-}
-.teemboom_comment_title i{
-	font-size: 80%;
-	opacity: 0.7;
-}
-
-.teemboom_comment_body{
-	width: 90%;
-	height: fit-content;
-	font-size: 2.6em;
-	word-break: break-word;
-}
-.teemboom_comment_menu{
-	position: absolute;
-	top: 3px;
-	right: 5px;
-	font-size: 3em;
-	cursor: pointer;
-	opacity: 0.7;
-	display: none;
-}
-.teemboom_comment_menu p{
-	font-size: 18px;
-	color: var(--teemboom-text);
-}
-@media (pointer: coarse){
-	.teemboom_comment_menu{
-		display: block;
-	}
-}
-.teemboom_comment_menu div{
-	position: absolute;
-	top: 100%;
-	width: 55px;
-	font-size: 70%;
-	right: 0px;
-	padding: 3px 0px 0px 3px;
-	border: 1px var(--teemboom-outline) solid;
-	border-radius: 4px;
-	display: flex;
-	flex-shrink: 0;
-}
-.teemboom_comment_engage{
-	display: flex;
-	padding-top: 8px;
-	height: fit-content;
-	color: var(--teemboom-text);
-}
-.teemboom_engage_like{
-	fill: blue;
-}
-.teemboom_engage_like svg{
-	width: 2.1em;
-	height: 2.1em;
-	margin-right: 3px;
-	cursor: pointer;
-}
-.teemboom_engage_like svg path{
-	fill: var(--teemboom-text);
-}
-.teemboom_engage_dislike svg{
-	width: 2.1em;
-	height: 2.1em;
-	margin: 2px 15px 0 4px;
-	cursor: pointer;
-}
-.teemboom_engage_dislike svg path{
-	fill: var(--teemboom-text);
-}
-.teemboom_engage_like_num{
-	font-size: 2.1em;
-	font-weight: 600;
-	opacity: 0.8;
-	color: var(--teemboom-text);
-}
-.teemboom_engage_reply_num{
-	font-size: 2em;
-	font-weight: 600;
-	opacity: 0.8;
-	color: var(--teemboom-text);
-}
-.teemboom_engage_reply{
-	font-size: 2em;
-	font-weight: 600;
-	opacity: 0.9;
-	margin-right: 3px;
-	cursor: pointer;
-	color: var(--teemboom-text);
-}
-
-.teemboom_replies{
-	padding: 7px 0 0 0;
-	width: 100%;
-	display: none;
-}
-.teemboom_replies_input{
-	width: 96%;
-	height: 2em;
-	padding: 0.7em 2%;
-	background: var(--teemboom-comments);
-	color: var(--teemboom-text);
-    border: none;
-	border-bottom: 1px var(--teemboom-outline) solid;
-	font-size: 2.2em;
-	outline: none;
-	margin-bottom: 5px;
-}
-.teemboom_reply{
-	width: calc(100% - 10px);
-	padding: 5px 5px;
-	background: var(--teemboom-comments);
-	display: flex;
-	position: relative;
-}
-.teemboom_reply:hover .teemboom_reply_menu{
-	display: block;
-}
-.teemboom_reply_pfp{
-	width: 22px;
-	height: 19px;
-	padding-top: 3px;
-	border-radius: 50%;
-	margin-right: 5px;
-	flex-shrink: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 2em;
-	font-family: Arial, Helvetica, sans-serif;
-}
-.teemboom_reply_main{
-	width: 100%;
-}
-
-.teemboom_reply_title{
-	width: fit-content;
-	padding: 5px 0 3px 0;
-	font-size: 2em;
-	font-weight: 600;
-	color: var(--teemboom-text);
-}
-.teemboom_reply_title i{
-	font-size: 80%;
-	opacity: 0.7;
-}
-.teemboom_reply_body{
-	width: 95%;
-	font-size: 2.4em;
-	word-break: break-word;
-	color: var(--teemboom-text);
-}
-.teemboom_reply_menu{
-	position: absolute;
-	top: 3px;
-	right: 5px;
-	font-size: 3em;
-	cursor: pointer;
-	opacity: 0.7;
-	display: none;
-}
-.teemboom_reply_menu p{
-	font-size: 18px;
-}
-@media (pointer: coarse){
-	.teemboom_reply_menu{
-		display: block;
-	}
-}
-.teemboom_reply_menu div{
-	position: absolute;
-	top: 100%;
-	width: 55px;
-	font-size: 70%;
-	right: 0px;
-	padding: 3px 0px 0px 3px;
-	border: 1px var(--teemboom-outline) solid;
-	border-radius: 4px;
-	display: flex;
-	flex-shrink: 0;
-}
-
-
-#teemboom_author_box{
-	border-bottom: 1px var(--teemboom-outline) solid;
-	width: fit-content;
-	padding: 0 10px;
-	margin: -10px 0 10px 30px;
-    display: none;
-}
-#teemboom_author{
-	height: 30px;
-	border: none;
-	outline: none;
-	color: var(--teemboom-text);
-	background: var(--teemboom-main);
-}
-#teemboom_author_box button{
-	height: 30px;
-	background: var(--teemboom-main);
-	border: none;
-	font-size: 2.3em;
-	font-weight: 900;
-	cursor: pointer;
-}
-
-#teemboom_join_community{
-	padding: 7px 15px;
-	margin-left: 1px;
-	background: var(--teemboom-comments);
-	border: 1px var(--teemboom-outline) solid;
-	font-weight: 600;
-	cursor: pointer;
-}
-
-
-
-
-.teemboom_popup{
+#teemboom_comments .teemboom_popup{
 	position: fixed;
 	width: 400px;
-	padding: 10px;
+	padding: 40px 10px;
 	max-width: 80vw;
-	min-height: 50px;
+	min-height: 200px;
 	height: fit-content;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background: var(--teemboom-main);
-	border: 2px var(--teemboom-outline) solid;
-	border-radius: 10px;
+	box-shadow: 0px 3px 6px 6px var(--teemboom-outline);
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	z-index: 100000;
 }
-.teemboom_popup_close{
+#teemboom_comments .teemboom_popup_close{
 	position: absolute;
 	right: 0%;
 	top: 0%;
 	width: 40px;
 	height: 30px;
-	font-size: 25px;
+	font-size: 18px;
+	font-weight: 600;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -442,53 +117,223 @@
 	cursor: pointer;
 	border-radius: 5px;
 }
-.teemboom_popup_partition{
+#teemboom_comments .teemboom_popup_partition{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
 	z-index: 99999;
+	background-color: var(--teemboom-main);
+	opacity: 0.4;
 } 
-.teemboom_popup header{
-	font-size: 3em;
+#teemboom_comments .teemboom_popup header{
+	font-size: 2.5em;
 	text-align: center;
 	font-weight: 600;
 	margin-bottom: 10px;
 }
-.teemboom_popup h6{
-	font-size: 3em;
+#teemboom_comments .teemboom_popup h6{
+	font-size: 2.2em;
 	text-align: center;
 	font-weight: 600;
 	padding: 10px 0;
 }
-.teemboom_popup label{
+#teemboom_comments .teemboom_popup label{
 	font-size: 2.5em;
 	margin-bottom: 5px;
 }
-.teemboom_popup input{
+#teemboom_comments .teemboom_popup input{
 	background: var(--teemboom-main);
 	color: var(--teemboom-text);
 	border: 1px var(--teemboom-outline) solid;
 	height: 30px;
+	width: 96%;
+	padding: 0 2%;
 	border-radius: 2px;
 	margin-bottom: 15px;
+	font-size: 2.8em !important;
 }
 
-.teemboom_popup textarea{
+#teemboom_comments .teemboom_popup textarea{
 	background: var(--teemboom-main);
 	color: var(--teemboom-text);
 	border: 1px var(--teemboom-outline) solid;
 	height: 80px;
 	border-radius: 2px;
 	margin-bottom: 10px;
+	font-size: 2.8em !important;
 }
-.teemboom_popup button{
-	background: var(--teemboom-text);
-	color: var(--teemboom-main);
-	border: 1px var(--teemboom-outline) solid;
+#teemboom_comments .teemboom_popup button{
+	background: var(--teemboom-main);
+	/* color: var(--teemboom-main); */
+	border: 1px var(--teemboom-text) solid;
 	height: 30px;
-	border-radius: 2px;
+	border-radius: 4px;
 	margin-bottom: 10px;
+	font-size: 2.6em;
+}
+
+#teemboom_comments .teemboom_popup_social{
+	width: 100%;
+	height: 40px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	padding: 6px 0;
+	border-radius: 5px;
+	border: none !important;
+}
+#teemboom_comments .teemboom_popup_social img{
+	width: auto;
+	height: 100%;
+	margin-right: 10px;
+}
+#teemboom_comments .teemboom_popup_social svg{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+#teemboom_comments .teemboom_popup_social p{
+	font-size: 1em;
+}
+
+#teemboom_profile_popup_pfp{
+	width: 60px;
+	height: 56px;
+	padding-top: 4px;
+	margin: 2px auto;
+	border-radius: 50%;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+#teemboom_comments .teemboom_profile_pic{
+	border-radius: 50% !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+#teemboom_comments .teemboom_profile_pic img{
+	object-fit: cover;
+}
+
+
+
+
+/* For app */
+#teemboomWriteComment{
+	position: relative;
+	width: 96%;
+	padding: 10px 2%;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	background: var(--teemboom-send_comment_background);
+	color: var(--teemboom-send_comment_text);
+	flex-shrink: 0;
+}
+#teemboomMainProfilePic{
+	width: 30px;
+	height: 30px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 20px 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 13px;
+	cursor: pointer;
+}
+#teemboomCommentInput{
+	height: 30px;
+	width: 100%;
+	padding-top: 15px;
+	background: var(--teemboom-send_comment_background);
+	color: var(--teemboom-send_comment_text);
+	outline: none;
+    border: none;
+    flex-grow: 0;
+	font-size: 2.6em;
+}
+#teemboomWriteComment button{
+	padding: 7px;
+	border-radius: 50%;
 	border: none;
+	margin-top: auto;
+}
+#teemboomWriteComment button svg{
+	width: 20px;
+	height: 20px;
+}
+
+#teemboomCommentsBox{
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	overflow: auto;
+	padding-bottom: 100px;
+}
+
+#teemboom_comments .teemboomComment{
+	width: 100%;
+	padding: 10px 5%;
+	background: var(--teemboom-comments);
+	border-bottom: 1px var(--teemboom-outline) solid;
+	border-radius: 3px;
+}
+#teemboom_comments .teemboomCommentMeta{
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+#teemboom_comments .teemboomcommentProfilePic{
+	width: 30px;
+	height: 30px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 8px 0 -5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 13px;
+	cursor: pointer;
+	background-color: black;
+	flex-shrink: 0;
+}
+#teemboom_comments .teemboomCommentTitle{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#teemboom_comments .teemboomCommentTitle p{
+	font-size: 2.4em;
+	font-weight: 600;
+	margin-bottom: 2px;
+}
+#teemboom_comments .teemboomCommentTitle span{
+	font-size: 60%;
+	font-weight: 400;
+	margin-left: 10px;
+	opacity: 0.8;
+}
+
+
+
+
+#teemboom_comments .teemboomcommentText{
+	width: 100%;
+	line-height: 160%;
+	font-size: 2.7em;
+	color: var(--teemboom-text);
+	word-break: break-all;
+	padding-left: 34px;
+	margin-top: -6px;
 }
