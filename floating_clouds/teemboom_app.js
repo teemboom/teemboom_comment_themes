@@ -4,9 +4,7 @@ function teemboom_app(config){
 		'config': config,
 		'populate': populate, 
 		'add_comment': add_comment,
-		'add_reply': add_reply,
 		'main_profile_id': 'teemboom_send_profile',
-		'comment_box_id': 'teemboom_send_text',
 		'like_number_class': 'teemboom_engage_like_num',
 		'dislike_number_class': 'teemboom_engage_dislike_num'
 	})
@@ -19,13 +17,12 @@ function teemboom_app(config){
 		// When ever this function is called we reset these variables
 		this.main_div.innerHTML = ''
 
-
 		//
 		// Comment Metrics display. eg. 34 - Comments
-		metrics_box = document.createElement('div')
-		metrics_box.id = 'teemboom_metrics_box'
-		metrics_box.innerText = '0 - Comments'
-		this.main_div.appendChild(metrics_box)
+		// metrics_box = document.createElement('div')
+		// metrics_box.id = 'teemboom_metrics_box'
+		// metrics_box.innerText = '0 - Comments'
+		// this.main_div.appendChild(metrics_box)
 
 		// UI Box for inputing comment
 		let send_box = document.createElement('div')
@@ -46,7 +43,7 @@ function teemboom_app(config){
 		send_text.addEventListener('keydown', (e)=>{
 			if (e.key == 'Enter' && e.shiftKey == false){
 				e.preventDefault()
-				this.submit_comment()
+				this.submit_comment(send_text)
 			}
 		})
 		send_text.setAttribute('data-emoji-picker', "true")
@@ -71,18 +68,17 @@ function teemboom_app(config){
 	 * @param data: Information about the comment in json format
 	 * Returns - None
 	 */
-	function add_comment(data, comments_number=false){
+	function add_comment(data){
 		// Main comment div: <class teemboom_comment>
 		let comment = document.createElement('div')
 		comment.className = 'teemboom_comment'
-		comment.id = `teemboom_comment_${data._id}`
+		comment.id = `${data._id}`
 
 		// User profile circle: <class: teemboom_comment_pfp>
 		let pfp = document.createElement('div')
 		pfp.className = 'teemboom_comment_pfp'
 		if (data.user.profile_pic) this.profile_pic(data.user.profile_pic, pfp)
 		else this.profile_avatar(data.user.username, pfp)
-
 		comment.appendChild(pfp)
 
 		// For the other information of the comment, is to the side of the pfp. <class teemboom_comment_main>
@@ -138,7 +134,7 @@ function teemboom_app(config){
 			engage.appendChild(dislike_number)
 		}
 		// Replies 
-		if (config.showReplies){
+		if (config.showReplies && !data.parent_id){
 			// UI for the reply engagement
 			let reply = document.createElement('p')
 			reply.className = 'teemboom_engage_reply'
@@ -146,6 +142,9 @@ function teemboom_app(config){
 			// onclick display the replies of the comment
 			reply.addEventListener('click', ()=>{
 				if (reply_box.style.display === 'none' || !reply_box.style.display){
+					if (comment.querySelectorAll('.teemboom_comment').length < data.replies){
+						this.getCommentChildren(data._id)
+					}
 					reply_box.style.display = 'block'
 				}
 				else reply_box.style.display = 'none'
@@ -154,7 +153,7 @@ function teemboom_app(config){
 			// REplies metric
 			let reply_num = document.createElement('p')
 			reply_num.className = 'teemboom_engage_reply_num'
-			reply_num.innerHTML = data.replies.length
+			reply_num.innerHTML = data.replies
 			engage.appendChild(reply_num)		
 
 			// UI element containing all the replies for the comment
@@ -168,67 +167,23 @@ function teemboom_app(config){
 			reply_input.addEventListener('keydown', (e)=>{
 				if (e.key == 'Enter' && e.shiftKey == false){
 					e.preventDefault()
-					this.submit_reply(data._id, reply_input)
+					this.submit_comment(reply_input, data._id)
 				}
 			})
 			reply_box.appendChild(reply_input)
-
-			// Filling the reply box with all the individual replies
-			// the reason why the add_reply() function is not being used is because the add_reply() function makes extra calls
-			// to the DOM - to find the comment - and we can skip those calls and append the reply directly to the current comment
-			// befor even adding it to the DOM, hence saving resources.
-			for (let elem of data.replies){
-				let reply = document.createElement('div')
-				reply.className = 'teemboom_reply'
-				let reply_pfp = document.createElement('div')
-				reply_pfp.className = 'teemboom_reply_pfp'
-				if (elem.user.profile_pic) this.profile_pic(elem.user.profile_pic, reply_pfp)
-				else this.profile_avatar(elem.user.username, reply_pfp)
-				reply.appendChild(reply_pfp)
-
-				let reply_main = document.createElement('div')
-				reply_main.className = 'teemboom_reply_main'
-				let reply_title = document.createElement('div')
-				reply_title.className = 'teemboom_reply_title'
-				reply_title.innerHTML = `${elem.user.username} <i>${elem.elasped_time}</i>`
-				reply_main.appendChild(reply_title)
-				let reply_body = document.createElement('div')
-				reply_body.className = 'teemboom_reply_body'
-				reply_body.innerText = elem.content
-				reply_main.appendChild(reply_body)
-				
-				reply.appendChild(reply_main)
-				reply_box.appendChild(reply)
-				this.comments_no++
-				let reply_menu = document.createElement('div')
-				reply_menu.className = 'teemboom_reply_menu'
-				let tag = document.createElement('p')
-				tag.innerHTML = '&#8942;'
-				reply_menu.appendChild(tag)
-				tag.onclick = ()=>{
-					if (reply_menu.querySelector('div')){
-						reply_menu.querySelector('div').remove()
-						return;
-					}
-					let report = document.createElement('div')
-					report.innerHTML = 'Report &#127988;'
-					report.addEventListener('click', ()=>{
-						this.report_popup(data._id, elem._id)
-					})
-					reply_menu.appendChild(report)
-				}
-				reply.appendChild(reply_menu)
-			}
-
 			main.appendChild(reply_box)
 		}
 
-		comments_box.appendChild(comment)
-		this.comments_no++
-		if (comments_number) this.comments_no = comments_number
+		if (data.parent_id){
+			let parent = document.getElementById(data.parent_id)
+			let repliesBox = parent.querySelector('.teemboom_replies')
+			repliesBox.appendChild(comment)
+			let commentReplyNumber = parent.querySelector('.teemboom_engage_reply_num')
+			commentReplyNumber.innerText = parent.querySelectorAll('.teemboom_comment').length
+		}else{
+			comments_box.appendChild(comment)
+		}
 		
-		if (this.comments_no == 1) metrics_box.innerText = `${this.comments_no} - comment`
-		else metrics_box.innerText = `${this.comments_no} - comments`
 		let comment_menu = document.createElement('div')
 		comment_menu.className = 'teemboom_comment_menu'
 		let tag = document.createElement('p')
@@ -248,58 +203,4 @@ function teemboom_app(config){
 		}
 		comment.appendChild(comment_menu)
 	}
-
-	/**
-	 * add_reply: Responsible for takin a reply data and rendering it to the Ui
-	 * 			  appending it to it's associated comment.
-	 * @param data: Information about the reply in json format
-	 */
-	function add_reply(data){
-		let reply = document.createElement('div')
-		reply.className = 'teemboom_reply'
-		let reply_pfp = document.createElement('div')
-		reply_pfp.className = 'teemboom_reply_pfp'
-		if (data.user.profile_pic) this.profile_pic(data.user.profile_pic, reply_pfp)
-		else this.profile_avatar(data.user.username, reply_pfp)
-		reply.appendChild(reply_pfp)
-
-		let reply_main = document.createElement('div')
-		reply_main.className = 'teemboom_reply_main'
-		let reply_title = document.createElement('div')
-		reply_title.className = 'teemboom_reply_title'
-		reply_title.innerHTML = `${data.user.username} <i>${data.elasped_time}</i>`
-		reply_main.appendChild(reply_title)
-		let reply_body = document.createElement('div')
-		reply_body.className = 'teemboom_reply_body'
-		reply_body.innerText = data.content
-		reply_main.appendChild(reply_body)
-		reply.appendChild(reply_main)
-		let comment = document.getElementById(`teemboom_comment_${data.comment_id}`)
-		let reply_box = comment.querySelector('.teemboom_replies')
-		let reply_num = comment.querySelector('.teemboom_engage_reply_num')
-		reply_num.innerText = Number(reply_num.innerText) + 1
-		reply_box.appendChild(reply)
-		this.comments_no++
-		metrics_box.innerText = `${this.comments_no} - comments`
-
-		let reply_menu = document.createElement('div')
-		reply_menu.className = 'teemboom_reply_menu'
-		let tag = document.createElement('p')
-		tag.innerHTML = '&#8942;'
-		reply_menu.appendChild(tag)
-		tag.onclick = ()=>{
-			if (reply_menu.querySelector('div')){
-				reply_menu.querySelector('div').remove()
-				return;
-			}
-			let report = document.createElement('div')
-			report.innerHTML = 'Report &#127988;'
-			report.addEventListener('click', ()=>{
-				this.report_popup(data.comment_id, data._id)
-			})
-			reply_menu.appendChild(report)
-		}
-		reply.appendChild(reply_menu)
-	}
 }
-

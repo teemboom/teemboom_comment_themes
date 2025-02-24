@@ -7,6 +7,7 @@
 .teemboom_root *{
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 .teemboom_root img{
 	width: 100%;
@@ -19,7 +20,7 @@
 }
 #teemboom_comments{
 	width: 100%;
-	padding: 10px 0% 0 0;
+	padding: 0px 0% 0 0;
 	border-radius: 1px;
 }
 
@@ -72,7 +73,7 @@
 
 #teemboom_send_box{
 	position: relative;
-	width: calc(100% - 10px);
+	width: 100%;
 	min-height: 45px;
 	display: flex;
 	align-items: center;
@@ -138,7 +139,7 @@
 }
 
 #teemboom_metrics_box{
-	width: calc(100% - 10px);
+	width: 100%;
 	margin: 15px 0 10px 0;
 	padding: 5px 5px;
 	font-size: 3em;
@@ -151,7 +152,7 @@
 	width: 100%;
 }
 .teemboom_comment{
-	width: calc(100% - 20px);
+	width: 100%;
 	margin: 20px 5px;
 	padding: 15px 5px;
 	background: var(--teemboom-comments);
@@ -289,7 +290,7 @@
 }
 .teemboom_replies_input{
 	width: 96%;
-	height: 15px;
+	height: 25px;
 	padding: 6px 2%;
 	background: var(--teemboom-send_reply_background);
 	color: var(--teemboom-send_reply_text);
@@ -306,72 +307,6 @@
 	color: var(--teemboom-reply_text);
 	display: flex;
 	position: relative;
-}
-.teemboom_reply:hover .teemboom_reply_menu{
-	display: block;
-}
-.teemboom_reply_pfp{
-	width: 22px;
-	height: 22px;
-	font-size: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;	
-	border-radius: 50%;
-	margin-right: 5px;
-	flex-shrink: 0;
-	overflow: hidden;
-	font-family: Arial, Helvetica, sans-serif;
-}
-.teemboom_reply_main{
-	width: 100%;
-}
-
-.teemboom_reply_title{
-	width: fit-content;
-	padding: 5px 0 3px 0;
-	font-size: 2em;
-	font-weight: 600;
-	color: var(--teemboom-text);
-}
-.teemboom_reply_title i{
-	font-size: 80%;
-	opacity: 0.7;
-}
-.teemboom_reply_body{
-	width: 95%;
-	font-size: 2.4em;
-	word-break: break-word;
-	color: var(--teemboom-reply_text);
-}
-.teemboom_reply_menu{
-	position: absolute;
-	top: 3px;
-	right: 5px;
-	font-size: 3em;
-	cursor: pointer;
-	opacity: 0.7;
-	display: none;
-}
-.teemboom_reply_menu p{
-	font-size: 18px;
-}
-@media (pointer: coarse){
-	.teemboom_reply_menu{
-		display: block;
-	}
-}
-.teemboom_reply_menu div{
-	position: absolute;
-	top: 100%;
-	width: 55px;
-	font-size: 70%;
-	right: 0px;
-	padding: 3px 0px 0px 3px;
-	border: 1px var(--teemboom-outline) solid;
-	border-radius: 4px;
-	display: flex;
-	flex-shrink: 0;
 }
 
 
