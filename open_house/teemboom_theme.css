@@ -290,15 +290,19 @@
 #teemboomPinnedComments{
 	flex-shrink: 0;
 }
+#teemboomPinnedComments .teemboomComment{
+	padding-bottom: 4px;
+	border-bottom-width: 2px;
+}
 #teemboom_comments .teemboomPinned{
 	width: 100%;
-	font-size: 2em;
+	font-size: 1.7em;
 	font-weight: 600;
-	padding-bottom: 5px;
+	padding-bottom: 3px;
 }
 #teemboom_comments .teemboomPinned svg{
-	width: 13px;
-	height: 13px;
+	width: 8px;
+	height: 8px;
 }
 #teemboom_comments .teemboomCommentMeta{
 	width: 100%;
