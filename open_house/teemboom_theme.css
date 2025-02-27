@@ -287,6 +287,19 @@
 	border-bottom: 1px var(--teemboom-outline) solid;
 	border-radius: 3px;
 }
+#teemboomPinnedComments{
+	flex-shrink: 0;
+}
+#teemboom_comments .teemboomPinned{
+	width: 100%;
+	font-size: 2em;
+	font-weight: 600;
+	padding-bottom: 5px;
+}
+#teemboom_comments .teemboomPinned svg{
+	width: 13px;
+	height: 13px;
+}
 #teemboom_comments .teemboomCommentMeta{
 	width: 100%;
 	display: flex;
