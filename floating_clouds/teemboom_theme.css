@@ -164,6 +164,16 @@
 .teemboom_comment:hover .teemboom_comment_menu{
 	display: block;
 }
+#teemboom_comments .teemboomPinned{
+	width: 100%;
+	font-size: 2em;
+	font-weight: 600;
+	padding-bottom: 5px;
+}
+#teemboom_comments .teemboomPinned svg{
+	width: 13px;
+	height: 13px;
+}
 .teemboom_comment_pfp{
 	width: 30px;
 	height: 30px;

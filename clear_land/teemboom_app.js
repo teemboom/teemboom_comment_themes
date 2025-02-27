@@ -55,7 +55,6 @@ function teemboom_app(config){
 		let comment = document.createElement('div')
 		comment.className = 'teemboomComment'
 		comment.id = data._id
-		console.log(data)
 		if (data.pinned){
 			let pinned = document.createElement('div')
 			pinned.className = 'teemboomPinned'
