@@ -14,7 +14,7 @@ function teemboom_app(config){
 		this.main_div.innerHTML = ''
 
 		let pinnedComments = document.createElement('div')
-		commentsBox.id = 'teemboomPinnedComments'
+		pinnedComments.id = 'teemboomPinnedComments'
 		this.main_div.appendChild(pinnedComments)
 
 		// Div that will contain all the comments
