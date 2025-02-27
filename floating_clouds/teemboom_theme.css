@@ -165,7 +165,10 @@
 	display: block;
 }
 #teemboom_comments .teemboomPinned{
-	width: 100%;
+	width: fit-content;
+	position: absolute;
+	top: 2px;
+	left: 2px;
 	font-size: 2em;
 	font-weight: 600;
 	padding-bottom: 5px;
