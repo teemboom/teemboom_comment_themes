@@ -168,7 +168,7 @@
 	width: fit-content;
 	position: absolute;
 	top: 2px;
-	left: 2px;
+	right: 10px;
 	font-size: 2em;
 	font-weight: 600;
 	padding-bottom: 5px;
