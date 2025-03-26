@@ -1,0 +1,445 @@
+.teemboom_root {
+    background: transparent;
+    color: var(--teemboom-text);
+    font-family: var(--teemboom-font_family);
+    font-size: var(--teemboom-font_size);
+}
+
+.teemboom_root * {
+    padding: 0;
+    margin: 0;
+}
+
+.teemboom_root img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teemboom_root input, textarea {
+    border: none;
+    outline: none;
+}
+
+.teemboom_root button {
+    color: var(--teemboom-text);
+    cursor: pointer;
+}
+
+#teemboom_comments {
+    width: 96%;
+    padding: 15px 2%;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--teemboom-main);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#teemboom_comments * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#teemboom_comments_popup {
+    width: 50%;
+    min-width: 400px;
+    height: 85vh;
+    position: fixed;
+    right: 0%;
+    top: 5vh;
+    z-index: 10000000;
+    display: none;
+    overflow-y: auto;
+    background: var(--teemboom-main);
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 550px) {
+    #teemboom_comments_popup {
+        width: 100%;
+        min-width: 0px;
+        height: 100%;
+        top: 0vh;
+    }
+}
+
+#teemboom_comments_popup #teemboom_send_box {
+    top: 40px;
+}
+
+#teemboom_popup_close {
+    padding: 15px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    position: sticky;
+    top: 0px;
+    height: 50px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background: var(--teemboom-main) !important;
+    border-bottom: 1px solid var(--teemboom-outline);
+}
+
+#teemboom_popup_close p {
+    height: 90%;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--teemboom-text) !important;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+#teemboom_popup_close p:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#teemboom_comments .teemboom_popup {
+    position: fixed;
+    width: 400px;
+    padding: 40px 20px;
+    max-width: 80vw;
+    min-height: 200px;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--teemboom-main);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100000;
+    border-radius: 12px;
+}
+
+#teemboom_comments .teemboom_popup_close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--teemboom-main);
+    color: var(--teemboom-text);
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+#teemboom_comments .teemboom_popup_close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#teemboom_comments .teemboom_popup_partition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+#teemboom_comments .teemboom_popup header {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_popup h6 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+    padding: 15px 0;
+    color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_popup label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_popup input {
+    background: var(--teemboom-main);
+    color: var(--teemboom-text);
+    border: 1px solid var(--teemboom-outline);
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 16px !important;
+    transition: border-color 0.2s;
+}
+
+#teemboom_comments .teemboom_popup input:focus {
+    border-color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_popup textarea {
+    background: var(--teemboom-main);
+    color: var(--teemboom-text);
+    border: 1px solid var(--teemboom-outline);
+    height: 100px;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 16px !important;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+#teemboom_comments .teemboom_popup textarea:focus {
+    border-color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_popup button {
+    background: var(--teemboom-main);
+    border: 1px solid var(--teemboom-text);
+    height: 40px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+#teemboom_comments .teemboom_popup button:hover {
+    background: var(--teemboom-text);
+    color: var(--teemboom-main);
+}
+
+#teemboom_comments .teemboom_popup_social {
+    width: 100%;
+    height: 45px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 8px 0;
+    border-radius: 6px;
+    border: none !important;
+    transition: background-color 0.2s;
+}
+
+#teemboom_comments .teemboom_popup_social:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#teemboom_comments .teemboom_popup_social img {
+    width: auto;
+    height: 100%;
+    margin-right: 10px;
+}
+
+#teemboom_comments .teemboom_popup_social svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+#teemboom_comments .teemboom_popup_social p {
+    font-size: 14px;
+}
+
+#teemboom_profile_popup_pfp {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--teemboom-outline);
+    color: var(--teemboom-text);
+}
+
+#teemboom_comments .teemboom_profile_pic {
+    border-radius: 50% !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 2px solid var(--teemboom-outline);
+}
+
+#teemboom_comments .teemboom_profile_pic img {
+    object-fit: cover;
+}
+
+/* For app */
+#teemboomWriteComment {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    background: var(--teemboom-send_comment_background);
+    color: var(--teemboom-send_comment_text);
+    flex-shrink: 0;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#teemboomMainProfilePic {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 15px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border: 2px solid var(--teemboom-outline);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+#teemboomMainProfilePic:hover {
+    border-color: var(--teemboom-text);
+}
+
+#teemboomCommentInput {
+    flex-grow: 1;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 20px;
+    background: var(--teemboom-main);
+    color: var(--teemboom-text);
+    font-size: 14px;
+    resize: none;
+    transition: background-color 0.2s;
+}
+
+#teemboomCommentInput:focus {
+    background: var(--teemboom-outline);
+}
+
+#teemboomWriteComment button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--teemboom-main);
+    border: none;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+#teemboomWriteComment button:hover {
+    background: var(--teemboom-outline);
+}
+
+#teemboomWriteComment button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--teemboom-text);
+}
+
+.teemboomComment {
+    padding: 15px;
+    margin-bottom: 15px;
+    background: var(--teemboom-main);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.teemboomComment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teemboomCommentMeta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.teemboomcommentProfilePic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    border: 2px solid var(--teemboom-outline);
+}
+
+.teemboomCommentTitle {
+    flex-grow: 1;
+}
+
+.teemboomCommentTitle p {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--teemboom-text);
+}
+
+.teemboomCommentTitle span {
+    font-size: 12px;
+    color: var(--teemboom-outline);
+    margin-left: 8px;
+}
+
+.teemboomcommentText {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--teemboom-text);
+}
+
+.teemboomPinned {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--teemboom-outline);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: var(--teemboom-text);
+}
+
+.teemboomPinned svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    fill: var(--teemboom-text);
+}
+
+.teemboomCommentLikeNumber,
+.teemboom_engage_dislike_num {
+    font-size: 12px;
+    color: var(--teemboom-outline);
+    margin-left: 4px;
+}
+
+#teemboomCommentsBox {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+}
+
+#teemboomPinnedComments {
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--teemboom-outline);
+    padding-bottom: 20px;
+} 
