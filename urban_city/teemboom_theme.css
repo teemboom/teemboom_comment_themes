@@ -442,4 +442,114 @@
     margin-bottom: 20px;
     border-bottom: 1px solid var(--teemboom-outline);
     padding-bottom: 20px;
+}
+
+.teemboomCommentLike {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.teemboomCommentLike:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.teemboomCommentLike svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--teemboom-like-reply);
+    margin-right: 4px;
+}
+
+.teemboomCommentEngage {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--teemboom-outline);
+}
+
+.teemboomReplyButton {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.teemboomReplyButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.teemboomReplyButton p {
+    font-size: 14px;
+    color: var(--teemboom-like-reply);
+    margin-right: 4px;
+}
+
+.teemboomReplyButton svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--teemboom-like-reply);
+    margin-right: 4px;
+}
+
+.teemboomReplyNumber {
+    font-size: 12px;
+    color: var(--teemboom-like-reply);
+}
+
+.teemboomReplies {
+    margin-top: 15px;
+    padding-left: 20px;
+    border-left: 2px solid var(--teemboom-outline);
+}
+
+.teemboomRepliesInput {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.teemboomRepliesInput textarea {
+    flex-grow: 1;
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 20px;
+    background: var(--teemboom-send_reply_background);
+    color: var(--teemboom-send_reply_text);
+    font-size: 14px;
+    resize: none;
+    transition: background-color 0.2s;
+}
+
+.teemboomRepliesInput textarea:focus {
+    background: var(--teemboom-outline);
+}
+
+.teemboomRepliesInput button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--teemboom-main);
+    border: none;
+    margin-left: 10px;
+    transition: background-color 0.2s;
+}
+
+.teemboomRepliesInput button:hover {
+    background: var(--teemboom-outline);
+}
+
+.teemboomRepliesInput button svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--teemboom-text);
 } 
